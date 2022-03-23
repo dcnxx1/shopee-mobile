@@ -56,7 +56,6 @@ class FilterAdapter( private var filterOptionArray : MutableList<FilterOption>, 
 
             bList.btn.setOnCheckChangeListener { view, isChecked ->
 
-              filterOptionArray.contains(FilterOption(bList.id, bList.type, bList.displayType))
                     filterOptionArray.add(FilterOption(bList.id, bList.type, bList.displayType))
                     notifyItemChanged(position)
 
