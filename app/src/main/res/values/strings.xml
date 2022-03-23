@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Shopee</string>
+    <string name="api_url">https://shopee-backend.herokuapp.com</string>
+</resources>

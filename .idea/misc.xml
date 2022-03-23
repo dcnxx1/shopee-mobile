@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.22291666666666668" />
+        <entry key="app/src/main/res/drawable/filter.xml" value="0.359" />
+        <entry key="app/src/main/res/drawable/filter_menu.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/filter_option.xml" value="0.371" />
+        <entry key="app/src/main/res/drawable/filter_selection.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/top_bar.xml" value="0.351" />
+        <entry key="app/src/main/res/layout/activity_bag.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/bottom_navigation.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/layout/cardlayout.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/filter.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/layout/filter_option.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/pager_image.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/menu/filter_menu.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/menu/top_menu.xml" value="0.2911500641299701" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
