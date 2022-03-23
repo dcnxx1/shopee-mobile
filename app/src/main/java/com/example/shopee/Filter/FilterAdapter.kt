@@ -56,18 +56,13 @@ class FilterAdapter( private var filterOptionArray : MutableList<FilterOption>, 
 
             bList.btn.setOnCheckChangeListener { view, isChecked ->
 
-                if(!filterOptionArray.contains(FilterOption(bList.id, bList.type, bList.displayType))){
+              filterOptionArray.contains(FilterOption(bList.id, bList.type, bList.displayType))
                     filterOptionArray.add(FilterOption(bList.id, bList.type, bList.displayType))
                     notifyItemChanged(position)
-                } else {
-                    updateItem(position)
-                    bList.btn.setChecked(false)
-                }
-
 
             }
         }
-        Log.i("tagger", filter.buttonList.size.toString())
+        Log.i("tagger", filterOptionArray.size.toString())
     }
 
 
