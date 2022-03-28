@@ -2,11 +2,14 @@ package com.example.shopee
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shopee.Class.FilterOption
+import com.example.shopee.Class.Stock
 import com.example.shopee.Class.StockAdapterHome
 import com.example.shopee.Class.ViewModel.MainViewModel
 import com.example.shopee.Filter.Filter
@@ -18,9 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModelFactory : ViewModelProvider.Factory
     private lateinit var binding : ActivityMainBinding
     private lateinit var filterAdapter : FilterAdapter
+    private lateinit var filter : Filter
 
-    // init viewModel
-    fun initViewModel(){
+    // initialize viewModel
+    private fun initViewModel(){
         viewModelFactory = ViewModelProvider.NewInstanceFactory()
         thisViewModel = ViewModelProvider(this)[MainViewModel::class.java]
         ViewModelProvider(this, viewModelFactory)[thisViewModel::class.java]
@@ -30,40 +34,32 @@ class MainActivity : AppCompatActivity() {
        super.onCreate(savedInstanceState)
        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
        initViewModel()
-       thisViewModel.getData()
+       thisViewModel.initViewModel()
        setAdapter()
-       thisViewModel.loadFilter()
-       Filter(binding).checkButtons(binding)
+       filterAdapter = FilterAdapter(binding, thisViewModel)
+       setFilterAdapter()
+       filter = Filter(binding)
    }
 
     override fun onStart() {
         super.onStart()
         goToBag()
-        var manager = LinearLayoutManager(this)
-        manager.orientation = LinearLayoutManager.HORIZONTAL
-        thisViewModel.filterOptions.observe(this) {
-            binding.recyclerFilter.layoutManager = manager
-
-            filterAdapter = FilterAdapter(it, binding)
-            binding.recyclerFilter.adapter = filterAdapter
-            binding.recyclerFilter.setHasFixedSize(false)
-        }
-        addItem()
+        filter.checkButtons(binding)
+        filter.handleFilterChecks(filterAdapter, thisViewModel)
 
     }
 
-    fun setAdapter(){
-            var manager = LinearLayoutManager(this)
+    private fun setAdapter(){
+            val manager = LinearLayoutManager(this)
             manager.orientation = LinearLayoutManager.VERTICAL
 
-            thisViewModel.originalStock.observe(this){
-            var adapterHome = StockAdapterHome(it)
+            thisViewModel.modifiedStock.observe(this){
+            val adapterHome = StockAdapterHome(it)
             binding.recyclerHome.adapter = adapterHome
             }
-
     }
 
-    fun goToBag(){
+    private fun goToBag(){
         val intent = Intent(this, Bag::class.java)
         binding.bag.setOnClickListener {
             startActivity(intent)
@@ -71,10 +67,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+  private fun setFilterAdapter(){
+        val manager = LinearLayoutManager(this)
+        manager.orientation = LinearLayoutManager.HORIZONTAL
 
-    fun addItem(){
-        binding.fOptionPants.setOnCheckChangeListener { view, isChecked ->
-            thisViewModel.filterOptions.value?.add(FilterOption(6, "cap", "Capper"))
+
+        thisViewModel.filterOptions.observe(this) {
+            filterAdapter.differ.submitList(it)
+
         }
+
+        binding.recyclerFilter.apply {
+                adapter = filterAdapter
+                layoutManager = manager
+                setHasFixedSize(true)
+            }
     }
+
+
+
 }

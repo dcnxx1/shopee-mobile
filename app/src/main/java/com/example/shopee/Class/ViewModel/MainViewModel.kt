@@ -17,38 +17,13 @@ import kotlin.coroutines.coroutineContext
 
 class MainViewModel() : ViewModel() {
     private val apiCaller = OnlineData
+    val originalStock : MutableLiveData<List<Stock>> = MutableLiveData<List<Stock>>()
+    val modifiedStock : MutableLiveData<MutableList<Stock>> = MutableLiveData<MutableList<Stock>>()
+    val filterOptions : MutableLiveData<MutableList<FilterOption>> = MutableLiveData<MutableList<FilterOption>>()
 
-
-    // original stock -> this should not change
-    val originalStock : MutableLiveData<List<Stock>> by lazy{
-        MutableLiveData<List<Stock>>()
+    init{
+        filterOptions.value = mutableListOf()
     }
-
-    val modifiedStock : MutableLiveData<MutableList<Stock>> by lazy{
-        MutableLiveData<MutableList<Stock>>()
-    }
-
-    val filterOptions : MutableLiveData<MutableList<FilterOption>> by lazy {
-        MutableLiveData<MutableList<FilterOption>>()
-    }
-
-    val filterOptionHelper : MutableLiveData<MutableList<FilterOption>> by lazy{
-        MutableLiveData<MutableList<FilterOption>>()
-    }
-
-    fun loadFilter(){
-        val testArr = mutableListOf(
-            FilterOption(1, type="shoe", displayType = "Schoenen"),
-            FilterOption(2, type = "skirt", displayType = "Jurken"),
-            FilterOption(3, type = "pants", displayType = "Broeken"),
-            FilterOption(4, type="earring", displayType = "Oorbellen"),
-            FilterOption(5, type="jacket", displayType = "Jassen")
-            )
-        filterOptions.postValue(testArr)
-    }
-
-
-
 
     fun getData(){
     viewModelScope.launch {
@@ -56,6 +31,7 @@ class MainViewModel() : ViewModel() {
             override fun onResponse(call: Call<List<Stock>>, response: Response<List<Stock>>) {
                 val listData = response.body()
                 listData.let { originalStock.postValue(it)}
+                listData.let { modifiedStock.postValue(it as MutableList<Stock>?) }
             }
 
             override fun onFailure(call: Call<List<Stock>>, t: Throwable) {
@@ -66,6 +42,9 @@ class MainViewModel() : ViewModel() {
 
     }
 
+    fun initViewModel(){
+        getData()
+    }
 
 
 

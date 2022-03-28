@@ -1,80 +1,72 @@
 package com.example.shopee.Filter
 
-import android.app.Activity
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
+
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopee.Class.FilterOption
-import com.example.shopee.MainActivity
+import com.example.shopee.Class.ViewModel.MainViewModel
 import com.example.shopee.R
 import com.example.shopee.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
 
-class FilterAdapter( private var filterOptionArray : MutableList<FilterOption>, val filterViews: ActivityMainBinding) : RecyclerView.Adapter<FilterAdapter.FilterViewHolder>() {
-    var filter = Filter(filterViews)
 
-    class FilterViewHolder(binder: View) : RecyclerView.ViewHolder(binder){
-        var filterOptionType : TextView
-        var closeButton : ImageView
-        init{
-            filterOptionType = binder.findViewById(R.id.filterOptionType)
-            closeButton = binder.findViewById(R.id.filterClose)
+class FilterAdapter(binding: ActivityMainBinding, val thisViewModel: MainViewModel) : RecyclerView.Adapter<FilterAdapter.FilterViewHolder>() {
+    var filterClass = Filter(binding)
+
+    private val diffUtil = object: DiffUtil.ItemCallback<FilterOption>(){
+        override fun areItemsTheSame(oldItem: FilterOption, newItem: FilterOption): Boolean {
+            return oldItem.id == newItem.id
+        }
+
+        override fun areContentsTheSame(oldItem: FilterOption, newItem: FilterOption): Boolean {
+            return oldItem == newItem
         }
     }
 
+    val differ = AsyncListDiffer(this, diffUtil)
+
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilterViewHolder {
-        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.filter_option, parent ,false)
-        inflater.animation = AnimationUtils.loadAnimation(parent.context, R.anim.filter_fade)
+        var inflater = LayoutInflater.from(parent.context).inflate(R.layout.filter_option, parent, false)
         return FilterViewHolder(inflater)
     }
 
     override fun onBindViewHolder(holder: FilterViewHolder, position: Int) {
-        holder.filterOptionType.text = filterOptionArray[position].displayType
-        respondClick(holder, position)
-        addItem(position)
-    }
+        val filter = differ.currentList[position]
 
-    fun respondClick(holder: FilterViewHolder, position: Int){
-        holder.filterOptionType.setOnClickListener{
-            updateItem(position)
-        }
+        holder.filterButton.text = filter.displayType
 
-        holder.closeButton.setOnClickListener {
-            updateItem(position)
-        }
-    }
+        filterClass.handleFilterButton(holder, position, thisViewModel, filter, differ, this)
 
-    fun addItem(position: Int){
-        filter.buttonList.forEach { bList ->
-
-            bList.btn.setOnCheckChangeListener { view, isChecked ->
-
-                    filterOptionArray.add(FilterOption(bList.id, bList.type, bList.displayType))
-                    notifyItemChanged(position)
-
-            }
-        }
-        Log.i("tagger", filterOptionArray.size.toString())
     }
 
 
-    private fun updateItem(position: Int){
-        filterOptionArray.removeAt(position)
 
-        notifyItemRemoved(position)
-        notifyItemChanged(position)
-    }
 
 
 
     override fun getItemCount(): Int {
-        return filterOptionArray.size
+        return differ.currentList.size
     }
+
+    inner class FilterViewHolder(val view: View): RecyclerView.ViewHolder(view){
+        val filterButton = view.findViewById<TextView>(R.id.filterOptionType)
+        val filterClose = view.findViewById<ImageView>(R.id.filterClose)
+    }
+
+
+
+
+
+
+
+
 }
