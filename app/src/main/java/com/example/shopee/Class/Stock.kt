@@ -1,7 +1,9 @@
 package com.example.shopee.Class
 
 import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Stock(
     @SerializedName("id")
     val ID: Int,

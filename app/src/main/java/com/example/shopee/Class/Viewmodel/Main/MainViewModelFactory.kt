@@ -1,4 +1,4 @@
-package com.example.shopee.Class.ViewModel
+package com.example.shopee.Class.Viewmodel.Main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

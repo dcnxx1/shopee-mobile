@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.DiffUtil
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopee.Class.FilterOption
-import com.example.shopee.Class.ViewModel.MainViewModel
+import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 import com.example.shopee.R
 import com.example.shopee.databinding.ActivityMainBinding
 

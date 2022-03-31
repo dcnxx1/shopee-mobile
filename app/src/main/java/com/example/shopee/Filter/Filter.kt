@@ -1,19 +1,14 @@
 package com.example.shopee.Filter
 
 
-import android.util.Log
-
-
 import android.widget.LinearLayout
-import androidx.core.view.get
 import androidx.recyclerview.widget.AsyncListDiffer
 
 
 import com.devzone.checkabletextview.CheckableTextView
 import com.example.shopee.Class.FilterOption
 import com.example.shopee.Class.Stock
-import com.example.shopee.Class.ViewModel.MainViewModel
-import com.example.shopee.MainActivity
+import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 
 import com.example.shopee.databinding.ActivityMainBinding
 

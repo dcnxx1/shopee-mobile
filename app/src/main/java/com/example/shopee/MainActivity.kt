@@ -2,16 +2,13 @@ package com.example.shopee
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shopee.Class.FilterOption
 import com.example.shopee.Class.Stock
 import com.example.shopee.Class.StockAdapterHome
-import com.example.shopee.Class.ViewModel.MainViewModel
+import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 import com.example.shopee.Filter.Filter
 import com.example.shopee.Filter.FilterAdapter
 import com.example.shopee.databinding.ActivityMainBinding
@@ -55,17 +52,20 @@ class MainActivity : AppCompatActivity() {
 
             thisViewModel.modifiedStock.observe(this){
             val adapterHome = StockAdapterHome(it)
+
             binding.recyclerHome.adapter = adapterHome
             }
     }
 
     private fun goToBag(){
-        val intent = Intent(this, Bag::class.java)
+       // fragment bag
         binding.bag.setOnClickListener {
-            startActivity(intent)
+
             overridePendingTransition(R.anim.enter, R.anim.exit)
         }
     }
+
+
 
   private fun setFilterAdapter(){
         val manager = LinearLayoutManager(this)

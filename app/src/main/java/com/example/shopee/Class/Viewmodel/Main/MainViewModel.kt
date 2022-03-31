@@ -1,4 +1,4 @@
-package com.example.shopee.Class.ViewModel
+package com.example.shopee.Class.Viewmodel.Main
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -7,13 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.shopee.Class.FilterOption
 import com.example.shopee.Class.Stock
 import com.example.shopee.Data.OnlineData
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.coroutines.coroutineContext
 
 class MainViewModel() : ViewModel() {
     private val apiCaller = OnlineData
