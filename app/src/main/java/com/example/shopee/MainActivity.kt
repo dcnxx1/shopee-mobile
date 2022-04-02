@@ -1,17 +1,19 @@
 package com.example.shopee
 
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.shopee.Class.Stock
+
 import com.example.shopee.Class.StockAdapterHome
 import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 import com.example.shopee.Filter.Filter
 import com.example.shopee.Filter.FilterAdapter
 import com.example.shopee.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var thisViewModel : MainViewModel
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
        initViewModel()
        thisViewModel.initViewModel()
        setAdapter()
@@ -83,6 +86,8 @@ class MainActivity : AppCompatActivity() {
                 setHasFixedSize(true)
             }
     }
+
+
 
 
 

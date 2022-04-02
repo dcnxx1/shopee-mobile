@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/filter_menu.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/filter_option.xml" value="0.371" />
         <entry key="app/src/main/res/drawable/filter_selection.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.243" />
         <entry key="app/src/main/res/drawable/top_bar.xml" value="0.351" />
         <entry key="app/src/main/res/layout/activity_bag.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/layout/activity_item.xml" value="0.20478837109876016" />
@@ -18,6 +19,7 @@
         <entry key="app/src/main/res/layout/filter_option.xml" value="0.25" />
         <entry key="app/src/main/res/layout/pager_image.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.19581017528858485" />
         <entry key="app/src/main/res/menu/filter_menu.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/top_menu.xml" value="0.2911500641299701" />
       </map>

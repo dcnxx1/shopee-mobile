@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:iconTintMode="src_atop" android:enabled="true"  android:id="@+id/home" android:title="Home" android:contentDescription="Home" />
+<item  android:iconTintMode="src_atop" android:id="@+id/bag" android:title="Winkeltas" android:icon="@drawable/ic_baseline_home_24" />
+</menu>
