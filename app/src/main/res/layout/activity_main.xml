@@ -9,66 +9,18 @@
         android:background="@color/beige"
         tools:context=".MainActivity">
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/shopee_orange"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-            <ImageView
-                android:id="@+id/shopee"
-                android:layout_width="120dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:src="@drawable/sshopeelogopng" />
-
-
-            <ImageView
-                android:id="@+id/bag"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="60dp"
-
-                android:src="@drawable/shopping_bag" />
-
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/top_bar"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="12dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/menu"
-                android:theme="@style/Theme.AppCompat.DayNight"
-                app:menu="@menu/top_menu" />
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
 
         <LinearLayout
+
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/filter"
             android:orientation="horizontal"
             android:padding="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerHome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="2dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerFilter"
@@ -84,95 +36,96 @@
                 android:layout_marginStart="30dp"
 
                 android:background="@drawable/filterbutton"
-                android:elevation="5dp"
-                />
+                android:elevation="5dp" />
 
         </LinearLayout>
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerHome"
-            android:padding="10dp"
             android:layout_width="413dp"
-            android:layout_height="745dp"
+            android:layout_height="700dp"
+            android:layout_marginTop="108dp"
+            android:padding="10dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:spanCount="2" />
+            app:spanCount="2">
+
+        </androidx.recyclerview.widget.RecyclerView>
 
         <LinearLayout
             android:id="@+id/layoutOrange"
             android:layout_width="166dp"
             android:layout_height="196dp"
-            android:visibility="gone"
-            tools:visibility="visible"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="4dp"
             android:background="@drawable/filter_menu"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            tools:visibility="visible">
 
-           <com.devzone.checkabletextview.CheckableTextView
-               android:id="@+id/f_option_shoe"
-               android:layout_width="match_parent"
-               app:ctv_IconChecked="false"
-               android:layout_height="35dp"
-               app:ctv_Text="Schoenen"
-               app:ctv_TextGravity="left"
-               />
+            <com.devzone.checkabletextview.CheckableTextView
+                android:id="@+id/f_option_shoe"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                app:ctv_IconChecked="false"
+                app:ctv_Text="Schoenen"
+                app:ctv_TextGravity="left" />
+
             <com.devzone.checkabletextview.CheckableTextView
                 android:id="@+id/f_option_skirt"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 app:ctv_IconChecked="false"
                 app:ctv_IconTint="@color/shopee_orange"
-                app:ctv_TextGravity="left"
                 app:ctv_Text="Jurken"
-                />
+                app:ctv_TextGravity="left" />
+
             <com.devzone.checkabletextview.CheckableTextView
                 android:id="@+id/f_option_jacket"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 app:ctv_IconChecked="false"
                 app:ctv_IconTint="@color/shopee_orange"
-                app:ctv_TextGravity="left"
                 app:ctv_Text="Jassen"
-                />
+                app:ctv_TextGravity="left" />
+
             <com.devzone.checkabletextview.CheckableTextView
                 android:id="@+id/f_option_pants"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 app:ctv_IconChecked="false"
-                
+
                 app:ctv_IconTint="@color/shopee_orange"
-                app:ctv_TextGravity="left"
                 app:ctv_Text="Broeken"
-                />
+                app:ctv_TextGravity="left" />
+
             <com.devzone.checkabletextview.CheckableTextView
                 android:id="@+id/f_option_earring"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 app:ctv_IconChecked="false"
                 app:ctv_IconTint="@color/shopee_orange"
-                app:ctv_TextGravity="left"
                 app:ctv_Text="Oorbellen"
-                />
+                app:ctv_TextGravity="left" />
 
 
         </LinearLayout>
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav"
-            android:layout_width="412dp"
-            android:layout_height="48dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <com.skydoves.androidbottombar.AndroidBottomBarView
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/shopee_orange"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav" />
+            app:layout_constraintTop_toBottomOf="@+id/recyclerHome" />
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

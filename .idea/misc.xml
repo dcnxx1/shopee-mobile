@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.22291666666666668" />
+        <entry key="../../Android/Sdk/platforms/android-32/data/res/layout/list_content.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/drawable/filter.xml" value="0.359" />
         <entry key="app/src/main/res/drawable/filter_menu.xml" value="0.2025" />
         <entry key="app/src/main/res/drawable/filter_option.xml" value="0.371" />
@@ -11,15 +12,19 @@
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.243" />
         <entry key="app/src/main/res/drawable/top_bar.xml" value="0.351" />
         <entry key="app/src/main/res/layout/activity_bag.xml" value="0.3039760581445062" />
+        <entry key="app/src/main/res/layout/activity_co.xml" value="0.20735356990166737" />
         <entry key="app/src/main/res/layout/activity_item.xml" value="0.20478837109876016" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/bottom_navigation.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/layout/cardlayout.xml" value="0.2" />
         <entry key="app/src/main/res/layout/filter.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/layout/filter_option.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_item.xml" value="0.20735356990166737" />
+        <entry key="app/src/main/res/layout/item_article_layout.xml" value="0.5" />
         <entry key="app/src/main/res/layout/pager_image.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.19581017528858485" />
+        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/filter_menu.xml" value="0.3039760581445062" />
         <entry key="app/src/main/res/menu/top_menu.xml" value="0.2911500641299701" />
       </map>

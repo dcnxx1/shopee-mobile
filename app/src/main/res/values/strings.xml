@@ -4,5 +4,7 @@
     <string name="get_current_item">GET_CURRENT_SELECTED_ITEM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="winkeltas">Winkeltas</string>
 
 </resources>

@@ -4,6 +4,7 @@ package com.example.shopee
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 import com.example.shopee.Filter.Filter
 import com.example.shopee.Filter.FilterAdapter
 import com.example.shopee.databinding.ActivityMainBinding
+import com.skydoves.androidbottombar.BottomMenuItem
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,18 +34,19 @@ class MainActivity : AppCompatActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
        super.onCreate(savedInstanceState)
        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
+        bottomBarAdd()
        initViewModel()
        thisViewModel.initViewModel()
        setAdapter()
        filterAdapter = FilterAdapter(binding, thisViewModel)
        setFilterAdapter()
        filter = Filter(binding)
+
    }
 
     override fun onStart() {
         super.onStart()
-        goToBag()
+    
         filter.checkButtons(binding)
         filter.handleFilterChecks(filterAdapter, thisViewModel)
 
@@ -54,19 +57,13 @@ class MainActivity : AppCompatActivity() {
             manager.orientation = LinearLayoutManager.VERTICAL
 
             thisViewModel.modifiedStock.observe(this){
-            val adapterHome = StockAdapterHome(it)
+            val adapterHome = StockAdapterHome(it, this)
 
             binding.recyclerHome.adapter = adapterHome
             }
     }
 
-    private fun goToBag(){
-       // fragment bag
-        binding.bag.setOnClickListener {
 
-            overridePendingTransition(R.anim.enter, R.anim.exit)
-        }
-    }
 
 
 
@@ -77,7 +74,6 @@ class MainActivity : AppCompatActivity() {
 
         thisViewModel.filterOptions.observe(this) {
             filterAdapter.differ.submitList(it)
-
         }
 
         binding.recyclerFilter.apply {
@@ -89,6 +85,23 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+    fun bottomBarAdd(){
+        binding.bottomBar.addBottomMenuItems(mutableListOf(
+            BottomMenuItem(this)
+                .setTitle("Artikelen")
+                .setTitleColorRes(R.color.beige)
+                .setTitleActiveColor(resources.getColor(R.color.beige_white))
+                .setIcon(R.drawable.ic_baseline_home_24)
+                .setIconSize(20)
+                .build(),
+            BottomMenuItem(this)
+                .setTitle("Winkeltas")
+                .setTitleColorRes(R.color.beige)
+                .setTitleActiveColor(resources.getColor(R.color.beige_white))
+                .setIcon(R.drawable.ic_baseline_shopping_bag_24)
+                .setIconSize(20)
+                .build()
+        ))
+    }
 
 }
