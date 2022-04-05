@@ -14,9 +14,10 @@ import com.example.shopee.Class.FilterOption
 import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 import com.example.shopee.R
 import com.example.shopee.databinding.ActivityMainBinding
+import com.example.shopee.databinding.FragmentArticleBinding
 
 
-class FilterAdapter(binding: ActivityMainBinding, val thisViewModel: MainViewModel) : RecyclerView.Adapter<FilterAdapter.FilterViewHolder>() {
+class FilterAdapter(binding: FragmentArticleBinding, val thisViewModel: MainViewModel) : RecyclerView.Adapter<FilterAdapter.FilterViewHolder>() {
     var filterClass = Filter(binding)
 
     private val diffUtil = object: DiffUtil.ItemCallback<FilterOption>(){

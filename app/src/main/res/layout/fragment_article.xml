@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/beige"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/filter"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFilter"
+            android:layout_width="294dp"
+            android:layout_height="36dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <ImageView
+            android:id="@+id/filterButton"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="30dp"
+
+            android:background="@drawable/filterbutton"
+            android:elevation="5dp" />
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerHome"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:padding="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:spanCount="2"
+        tools:layout_editor_absoluteX="411dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/layoutOrange"
+        android:layout_width="166dp"
+        android:layout_height="196dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/filter_menu"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:visibility="visible">
+
+        <com.devzone.checkabletextview.CheckableTextView
+            android:id="@+id/f_option_shoe"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ctv_IconChecked="false"
+            app:ctv_Text="Schoenen"
+            app:ctv_TextGravity="left" />
+
+        <com.devzone.checkabletextview.CheckableTextView
+            android:id="@+id/f_option_skirt"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ctv_IconChecked="false"
+            app:ctv_IconTint="@color/shopee_orange"
+            app:ctv_Text="Jurken"
+            app:ctv_TextGravity="left" />
+
+        <com.devzone.checkabletextview.CheckableTextView
+            android:id="@+id/f_option_jacket"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ctv_IconChecked="false"
+            app:ctv_IconTint="@color/shopee_orange"
+            app:ctv_Text="Jassen"
+            app:ctv_TextGravity="left" />
+
+        <com.devzone.checkabletextview.CheckableTextView
+            android:id="@+id/f_option_pants"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ctv_IconChecked="false"
+
+            app:ctv_IconTint="@color/shopee_orange"
+            app:ctv_Text="Broeken"
+            app:ctv_TextGravity="left" />
+
+        <com.devzone.checkabletextview.CheckableTextView
+            android:id="@+id/f_option_earring"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:ctv_IconChecked="false"
+            app:ctv_IconTint="@color/shopee_orange"
+            app:ctv_Text="Oorbellen"
+            app:ctv_TextGravity="left" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

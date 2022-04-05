@@ -17,5 +17,14 @@
 
     </style>
 
+    <style name="Theme.Shopee.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Shopee.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Shopee.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 
 </resources>

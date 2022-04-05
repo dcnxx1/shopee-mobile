@@ -11,15 +11,13 @@ import com.example.shopee.Class.Stock
 import com.example.shopee.Class.Viewmodel.Main.MainViewModel
 
 import com.example.shopee.databinding.ActivityMainBinding
+import com.example.shopee.databinding.FragmentArticleBinding
 
 
-
-
-
-class Filter(binding: ActivityMainBinding) {
+class Filter(binding: FragmentArticleBinding) {
 
     var showMenu = false
-    fun checkButtons(binder: ActivityMainBinding){
+    fun checkButtons(binder: FragmentArticleBinding){
             binder.filterButton.setOnClickListener {
                 if(showMenu){
                     binder.layoutOrange.visibility = LinearLayout.VISIBLE

@@ -1,7 +1,11 @@
 package com.example.shopee.Class
 
+import android.os.Parcelable
+import com.example.shopee.Room.Stock
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.Serializable
+
 
 @Serializable
 data class Stock(
@@ -29,4 +33,24 @@ data class FilterOption(
     val displayType: String
 
 )
+
+@Parcelize
+data class StockArgs(
+
+    val ID: Int,
+
+    val type: String,
+
+    val brand: String,
+
+    val model: String,
+
+    val sex: String,
+
+    val price: String,
+
+    val size: List<String>,
+
+    val image_url: List<String>
+) : Parcelable
 

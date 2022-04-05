@@ -3,9 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_nav"
-    app:startDestination="@id/itemFragment">
+    app:startDestination="@id/articleFragment">
 
-
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.example.shopee.ArticleFragment"
+        android:label="ArticleFragment"
+        tools:layout="@layout/fragment_article"
+        >
+        <action
+            android:id="@+id/action_articleFragment_to_itemFragment"
+            app:destination="@id/itemFragment" />
+        <action
+            android:id="@+id/action_articleFragment_to_bagFragment"
+            app:destination="@id/bagFragment" />
+    </fragment>
     <fragment
         android:id="@+id/itemFragment"
         android:name="com.example.shopee.ItemFragment"
@@ -14,10 +26,14 @@
         <action
             android:id="@+id/action_itemFragment_to_bagFragment"
             app:destination="@id/bagFragment" />
+        <argument
+            android:name="stockArgs"
+            app:argType="com.example.shopee.Class.StockArgs" />
     </fragment>
     <fragment
         android:id="@+id/bagFragment"
         android:name="com.example.shopee.BagFragment"
         android:label="fragment_bag"
         tools:layout="@layout/fragment_bag" />
+
 </navigation>

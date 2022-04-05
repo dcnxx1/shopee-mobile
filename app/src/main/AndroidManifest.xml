@@ -12,14 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shopee">
         <activity
-            android:name=".CoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Item"
-            android:exported="false" />
-        <activity
-            android:name=".Bag"
-            android:exported="false" />
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Shopee.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
