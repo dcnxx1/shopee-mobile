@@ -68,10 +68,7 @@ class ArticleFragment : Fragment() {
     }
 
 
-    override fun onResume() {
-        super.onResume()
-        
-    }
+
 
     private fun setFilterAdapter(){
         val manager = LinearLayoutManager(this.context)
@@ -90,6 +87,8 @@ class ArticleFragment : Fragment() {
             setHasFixedSize(true)
         }
     }
+
+
 
 
 
